@@ -68,7 +68,7 @@ const App = () => {
         <div className="app-container">
             <div className="app-card">
                 <div className="header">
-                    <h1 className="app-title">Swish-QR-kodgenerator</h1>
+                    <h1 className="app-title">Generera Swish-QR</h1>
                 </div>
                 <form onSubmit={handleSubmit} className="form-container">
                     {[

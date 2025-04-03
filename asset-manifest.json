@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/swish-qr/static/css/main.73f87a35.css",
+    "main.css": "/swish-qr/static/css/main.1f16cfd1.css",
     "main.js": "/swish-qr/static/js/main.091dccfe.js",
     "static/js/453.5edf7183.chunk.js": "/swish-qr/static/js/453.5edf7183.chunk.js",
     "index.html": "/swish-qr/index.html",
-    "main.73f87a35.css.map": "/swish-qr/static/css/main.73f87a35.css.map",
+    "main.1f16cfd1.css.map": "/swish-qr/static/css/main.1f16cfd1.css.map",
     "main.091dccfe.js.map": "/swish-qr/static/js/main.091dccfe.js.map",
     "453.5edf7183.chunk.js.map": "/swish-qr/static/js/453.5edf7183.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73f87a35.css",
+    "static/css/main.1f16cfd1.css",
     "static/js/main.091dccfe.js"
   ]
 }

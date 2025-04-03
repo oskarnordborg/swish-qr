@@ -41,7 +41,7 @@ const App = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/qrg-swish/api/v1/prefilled",
+                "https://swish-qr-dc7e4c886e66.herokuapp.com/api/qrg-swish/api/v1/prefilled",
                 requestBody,
                 {
                     headers: { "Content-Type": "application/json" },

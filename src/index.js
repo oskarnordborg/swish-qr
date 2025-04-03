@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const express = require("express");
+const { createProxyMiddleware } = require("http-proxy-middleware");
+require("dotenv").config();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const app = express();
+
+// Enable CORS
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
+    res.header(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(200); // Handle preflight requests
+    }
+    next();
+});
+
+// Proxy configuration
+app.use(
+    "/api",
+    createProxyMiddleware({
+        target: process.env.TARGET_URL, // Target API URL from .env
+        changeOrigin: true,
+        pathRewrite: {
+            "^/api": "", // Remove /api prefix when forwarding to the target
+        },
+    })
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Proxy server is running on http://localhost:${PORT}`);
+});
